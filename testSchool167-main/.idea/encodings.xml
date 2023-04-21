@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/FirsSecurity/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FirsSecurity/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/FirsSecurity/src/main/resources/SSL/key.pem" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/FirsSecurity/src/main/resources/SSL/ssl.pem" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/FirsSecurity/src/main/resources/school167.ru_2023-03-01-01-06_50.crt" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/FirsSecurity/src/main/resources/school167.ru_2023-03-01-01-06_50.key" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/FirsSecurity/src/main/resources/school167ru_202303010106_50_cert_out.pfx" charset="windows-1251" />
+  </component>
+</project>
