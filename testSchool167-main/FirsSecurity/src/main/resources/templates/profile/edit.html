@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Edit Profile</title>
+</head>
+<body>
+<h1>Edit Profile</h1>
+<form th:method="POST" th:action="@{/profile/edit}" >
+  <input type="hidden" th:field="*{person.id}" />
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" th:field="*{person.name}" />
+  </div>
+  <div>
+    <label for="surname">Surname:</label>
+    <input type="text" th:field="*{person.surname}" />
+  </div>
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" th:field="*{person.username}" />
+  </div>
+  <div>
+    <label for="yearOfBirth">Year of Birth:</label>
+    <input type="number" th:field="*{person.yearOfBirth}" />
+  </div>
+  <div>
+    <label for="Classes">Class:</label>
+    <input type="number" th:field="*{person.classes}" />
+  </div>
+  <div>
+    <label for="role">Role:</label>
+    <select th:field="*{person.role}">
+      <option value="ROLE_USER">Ученик</option>
+      <option value="ROLE_ADMIN">Админ</option>
+      <option value="ROLE_TEACHER">Учитель</option>
+    </select>
+  </div>
+  <button type="submit">Save</button>
+</form>
+</body>
+</html>

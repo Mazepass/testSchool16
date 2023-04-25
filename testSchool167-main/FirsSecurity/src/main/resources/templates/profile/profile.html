@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Profile</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/templates/profile}" th:object="${person}">
+<h1>Profile Information</h1>
+  <p><strong> Имя:</strong> <span th:text="${person.name}"></span></p>
+  <p><strong>Фамилия:</strong> <span th:text="${person.surname}"></span></p>
+  <p><strong>Персональное имя:</strong> <span th:text="${person.username}"></span></p>
+  <p><strong>Класс:</strong> <span th:text="${person.classes}"></span></p>
+  <p><strong>Год рождения:</strong> <span th:text="${person.yearOfBirth}"></span></p>
+  <p><strong>Роль:</strong> <span th:text="${person.role}"></span></p>
+  <p><strong>ID:</strong> <span th:text="${person.id}"></span></p>
+
+</form>
+</body>
+</html>

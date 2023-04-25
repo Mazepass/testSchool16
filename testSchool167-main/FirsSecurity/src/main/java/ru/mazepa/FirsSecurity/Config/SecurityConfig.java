@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.access.prepost.PrePostAnnotationSecurityMetadataSource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,7 +25,8 @@ public class SecurityConfig {
 
 
     @Autowired
-    public SecurityConfig(PersonDetailsService personDetailsService) {
+    public SecurityConfig( PersonDetailsService personDetailsService) {
+
         this.personDetailsService = personDetailsService;
 
 
@@ -38,6 +40,7 @@ public class SecurityConfig {
                 .requestMatchers(request -> request.getRequestURI().equals("/auth/login")).permitAll() // разрешаем доступ к странице логина
                 .requestMatchers(request -> request.getRequestURI().equals("/auth/registration")).permitAll() // разрешаем доступ к странице регистрации
                 .requestMatchers(request -> request.getRequestURI().equals("/error")).permitAll()
+                .requestMatchers("/static/**").permitAll()
                 .anyRequest().hasAnyRole("USER" , "ADMIN")// разрешаем доступ к странице ошибки
                 .and()
                 .formLogin()
@@ -55,12 +58,12 @@ public class SecurityConfig {
 
 
     void registerProvider(AuthenticationManagerBuilder auth) throws Exception {
-    auth.userDetailsService(personDetailsService).passwordEncoder(getPasswordEncoder());
+    auth.userDetailsService(personDetailsService);
     }
 
     @Bean
     public PasswordEncoder getPasswordEncoder() {
-        return new BCryptPasswordEncoder();
+      return new BCryptPasswordEncoder();
     }
 
 
