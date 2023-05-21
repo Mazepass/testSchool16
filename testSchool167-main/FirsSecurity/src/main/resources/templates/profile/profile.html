@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Profile</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet"  th:href="@{../static/css/profile.css}" />
+  <title>Профиль</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/templates/profile}" th:object="${person}">
-<h1>Profile Information</h1>
-  <p><strong> Имя:</strong> <span th:text="${person.name}"></span></p>
-  <p><strong>Фамилия:</strong> <span th:text="${person.surname}"></span></p>
-  <p><strong>Персональное имя:</strong> <span th:text="${person.username}"></span></p>
-  <p><strong>Класс:</strong> <span th:text="${person.classes}"></span></p>
-  <p><strong>Год рождения:</strong> <span th:text="${person.yearOfBirth}"></span></p>
-  <p><strong>Роль:</strong> <span th:text="${person.role}"></span></p>
-  <p><strong>ID:</strong> <span th:text="${person.id}"></span></p>
-
-</form>
+<div class="container">
+  <div class="header">
+    <h1>Информация о профиле</h1>
+    <a th:href="@{/profile/edit}"><button class="edit-button">Изменить</button></a>
+  </div>
+  <div class="profile-info">
+    <div class="row">
+      <div class="label"><strong>Имя:</strong></div>
+      <div class="value" th:text="${person.name}"></div>
+    </div>
+    <div class="row">
+      <div class="label"><strong>Фамилия:</strong></div>
+      <div class="value" th:text="${person.surname}"></div>
+    </div>
+    <div class="row">
+      <div class="label"><strong>Персональное имя:</strong></div>
+      <div class="value" th:text="${person.username}"></div>
+    </div>
+    <div class="row">
+      <div class="label"><strong>Класс:</strong></div>
+      <div class="value" th:text="${person.classes}"></div>
+    </div>
+    <div class="row">
+      <div class="label"><strong>Год рождения:</strong></div>
+      <div class="value" th:text="${person.yearOfBirth}"></div>
+    </div>
+    <div class="row">
+      <div class="label"><strong>ID:</strong></div>
+      <div class="value" th:text="${person.id}"></div>
+    </div>
+  </div>
+  </div>
+</div>
 </body>
 </html>

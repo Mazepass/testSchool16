@@ -1,41 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Edit Profile</title>
+  <meta charset="UTF-8">
+  <title>Редактирование профиля</title>
+  <link rel="stylesheet" th:href="@{../static/css/editProfile.css}" />
 </head>
 <body>
-<h1>Edit Profile</h1>
-<form th:method="POST" th:action="@{/profile/edit}" >
-  <input type="hidden" th:field="*{person.id}" />
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" th:field="*{person.name}" />
+<div class="container">
+  <div class="header">
+    <h1>Редактирование профиля</h1>
+    <a href="/" class="edit-button">Вернуться</a>
   </div>
-  <div>
-    <label for="surname">Surname:</label>
-    <input type="text" th:field="*{person.surname}" />
-  </div>
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" th:field="*{person.username}" />
-  </div>
-  <div>
-    <label for="yearOfBirth">Year of Birth:</label>
-    <input type="number" th:field="*{person.yearOfBirth}" />
-  </div>
-  <div>
-    <label for="Classes">Class:</label>
-    <input type="number" th:field="*{person.classes}" />
-  </div>
-  <div>
-    <label for="role">Role:</label>
-    <select th:field="*{person.role}">
-      <option value="ROLE_USER">Ученик</option>
-      <option value="ROLE_ADMIN">Админ</option>
-      <option value="ROLE_TEACHER">Учитель</option>
-    </select>
-  </div>
-  <button type="submit">Save</button>
-</form>
+  <form th:object="${person}" th:method="POST" th:action="@{/profile/edit}">
+    <input type="hidden" th:field="*{id}" />
+    <div class="profile-info">
+      <div class="row">
+        <div class="label">Имя:</div>
+        <div class="value"><input type="text" class="form-control" th:field="*{name}" /></div>
+
+
+      </div>
+      <div class="row">
+        <div class="label">Фамилия:</div>
+        <div class="value"><input type="text" class="form-control" th:field="*{surname}" /></div>
+
+      </div>
+      <div class="row">
+        <div class="label">Персональное имя:</div>
+        <div class="value"><input type="text" class="form-control" th:field="*{username}" /></div>
+
+
+      </div>
+      <div class="row">
+        <div class="label">Год рождения:</div>
+        <div class="value"><input type="number" class="form-control" th:field="*{yearOfBirth}" /></div>
+        <
+
+      </div>
+      <div class="row">
+        <div class="label">Класс:</div>
+        <div class="value"><input type="number" class="form-control" th:field="*{classes}" /></div>
+
+
+      </div>
+      <div class="row">
+        <div class="label">Роль:</div>
+        <div class="value">
+          <select class="form-control" th:field="*{role}">
+            <option value="ROLE_USER">Ученик</option>
+            <option value="ROLE_ADMIN">Админ</option>
+            <option value="ROLE_TEACHER">Учитель</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <button type="submit" class="edit-button">Сохранить</button>
+      </div>
+    </div>
+  </form>
+</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package ru.mazepa.FirsSecurity.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 
@@ -14,24 +15,25 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty
+
     @Column(name = "name")
     private String name;
 
     @Column(name = "username")
-    @NotEmpty
+
     private String username;
 
-    @NotEmpty
+
     @Column(name = "surname")
     private String surname;
 
     @Column(name = "yearofbirth")
     @Min(value = 1960 , message = "Год рождения должен быть больше чем, 1960")
+    @Max(value = 2017  , message = "Год рождения должен быть меньше чем 2017" )
     private int yearOfBirth;
 
 
-    @NotEmpty
+
     @Column(name = "password")
     private String password;
     @Column(name = "role")
@@ -39,7 +41,8 @@ public class Person {
 
 
 
-
+    @Min(value = 1, message = "1 это минимум")
+    @Max(value = 11 , message = "Нет классов выше 11!")
     @Column(name = "class")
     private int Classes;
 

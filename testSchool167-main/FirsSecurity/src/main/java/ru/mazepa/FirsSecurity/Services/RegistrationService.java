@@ -20,7 +20,6 @@ public class RegistrationService {
 }
 
     @Transactional
-    @CacheEvict(value = "person", key = "#personDetails.person.id")
     public void register(Person person){
      String encodedPassword = passwordEncoder.encode(person.getPassword());
      person.setPassword(encodedPassword);
@@ -32,7 +31,6 @@ public class RegistrationService {
 
     }
     @Transactional
-    @CacheEvict(value = "person", key = "#personDetails.person.id")
     public void updateUser(Person person, PersonDetails personDetails) {
         person.setId(personDetails.getPerson().getId());
         person.setRole(personDetails.getPerson().getRole());

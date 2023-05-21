@@ -29,4 +29,8 @@ public class PersonDetailsService implements UserDetailsService {
 
         return new PersonDetails(person.get());
     }
+    public void updatePerson(Person person) {
+        // сохраняем обновленную запись в базу данных
+        peopleRepository.save(person);
+    }
 }

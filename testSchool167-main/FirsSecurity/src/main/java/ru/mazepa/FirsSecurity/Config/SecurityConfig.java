@@ -1,5 +1,9 @@
 package ru.mazepa.FirsSecurity.Config;
 
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +16,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.context.SecurityContextPersistenceFilter;
+import org.springframework.web.filter.OncePerRequestFilter;
 import ru.mazepa.FirsSecurity.Services.PersonDetailsService;
+
+import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
@@ -51,6 +59,7 @@ public class SecurityConfig {
                 .and()
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/auth/login")
                 .permitAll();
+
 
         return http.build();
     }
